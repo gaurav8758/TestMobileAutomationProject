@@ -15,7 +15,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import com.projectname.qa.base.MobileTestBase;
 
 public class LocalDriverFactory {
-    static synchronized AppiumDriver<?> createInstance(String platformName) throws Exception  {
+    static synchronized AppiumDriver<?> createInstance(String platformName)  {
         AppiumDriver<?> Localdriver = null;
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -40,10 +40,17 @@ public class LocalDriverFactory {
    		{
    			AppiumServerURL = MobileTestBase.GlobalappiumURL;
    		}
-   		if (AppiumServerStartStop.isAppiumrunning()){
-   			AppiumServerURL = AppiumServerStartStop.service_url;
-   		}
    		
+   		try {
+			if (AppiumServerStartStop.isAppiumrunning()){
+				AppiumServerURL = AppiumServerStartStop.service_url;
+			}
+		} 
+   		catch (Exception e1) 
+   		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
    		//Checking the Appium server URL
    		
    		if (platformName.equalsIgnoreCase("android"))
