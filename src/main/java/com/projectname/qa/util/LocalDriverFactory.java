@@ -49,7 +49,7 @@ public class LocalDriverFactory {
         }
         else
         {
-        	ExtentTestManager.getTest().log(LogStatus.FAIL, "The appium server is <B><font color=red>NOT</font><B> running in the path: " + AppiumServerStartStop.service_url);
+        	ExtentTestManager.getTest().log(LogStatus.FAIL, "The appium server is <B><font color=red>NOT</font></B> running in the path: " + AppiumServerStartStop.service_url);
         }
    		//Checking the Appium server URL
    		

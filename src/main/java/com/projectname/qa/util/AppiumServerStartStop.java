@@ -39,15 +39,12 @@ public class AppiumServerStartStop {
     }
     
     public static boolean isAppiumrunning() {
-        try {
-            new UrlChecker().waitUntilAvailable(10, TimeUnit.SECONDS, new URL(service_url));
-            return true;
-        } catch (UrlChecker.TimeoutException e) {
-            return false;
-        } catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-		}
+    	if (!service.getUrl().toString().equalsIgnoreCase("") || !service.getUrl().toString().equalsIgnoreCase(null)){
+    		return true;
+    	}
+    	else
+    	{
+    		return false;
+    	}
     }
 }
