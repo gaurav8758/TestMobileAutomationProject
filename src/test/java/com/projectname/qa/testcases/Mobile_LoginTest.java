@@ -28,17 +28,17 @@ public class Mobile_LoginTest extends MobileTestBase{
 	@Test(priority=1, groups={"Testing","Mobile"})
 	public void Mobile_Login_Test001(){
 		setup();
-		//String PageTitle = loginPage.getLoginPageTitle();
-		
-		
-/*		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-		
-		
 		driver.findElement(By.id("com.whatsapp:id/eula_accept")).click();
+		driver.findElement(By.id("com.whatsapp:id/cancel")).click();
+		driver.findElement(By.id("com.whatsapp:id/registration_phone")).sendKeys("2107739101");
+	}
+	
+	public void Mobile_Login_Test002(){
+		setup();
+		driver.findElement(By.id("com.whatsapp:id/eula_accept")).click();
+		driver.findElement(By.id("com.whatsapp:id/submit")).click();
+		driver.findElement(By.id("com.android.packageinstaller:id/permission_deny_button")).click();
+		driver.findElement(By.id("com.android.packageinstaller:id/permission_deny_button")).click();
+		driver.findElement(By.id("com.whatsapp:id/registration_phone")).sendKeys("2107739101");
 	}
 }
