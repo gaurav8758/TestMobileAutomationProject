@@ -1,6 +1,10 @@
 package com.projectname.qa.util;
 
 import java.io.File;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.net.UrlChecker;
 
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
@@ -27,10 +31,19 @@ public class AppiumServerStartStop {
 		}
         
         service_url = service.getUrl().toString();
-        System.out.println(service_url);
     }
 
     public static void appiumStop(){
         service.stop();
+    }
+    
+    public static boolean isAppiumrunning() throws Exception {
+        final URL status = new URL(service_url);
+        try {
+            new UrlChecker().waitUntilAvailable(10, TimeUnit.SECONDS, status);
+            return true;
+        } catch (UrlChecker.TimeoutException e) {
+            return false;
+        }
     }
 }

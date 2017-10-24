@@ -15,7 +15,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import com.projectname.qa.base.MobileTestBase;
 
 public class LocalDriverFactory {
-    static synchronized AppiumDriver<?> createInstance(String platformName)  {
+    static synchronized AppiumDriver<?> createInstance(String platformName) throws Exception  {
         AppiumDriver<?> Localdriver = null;
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -34,12 +34,24 @@ public class LocalDriverFactory {
         	capabilities.setCapability("appActivity", MobileTestBase.GlobalappActivity);
    		}
    		
+   		//Checking the Appium server URL
+   		String AppiumServerURL = "";
+   		if ((null!=MobileTestBase.GlobalappiumURL) && !(MobileTestBase.GlobalappiumURL.equalsIgnoreCase("")))
+   		{
+   			AppiumServerURL = MobileTestBase.GlobalappiumURL;
+   		}
+   		if (AppiumServerStartStop.isAppiumrunning()){
+   			AppiumServerURL = AppiumServerStartStop.service_url;
+   		}
+   		
+   		//Checking the Appium server URL
+   		
    		if (platformName.equalsIgnoreCase("android"))
    		{
    			AndroidDriver<AndroidElement>driver=null;
 			try 
 			{
-				driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+				driver = new AndroidDriver<AndroidElement>(new URL(AppiumServerURL), capabilities);
 			} 
 			catch (MalformedURLException e) 
 			{
@@ -53,7 +65,7 @@ public class LocalDriverFactory {
    			IOSDriver<IOSElement>driver=null;
 			try 
 			{
-				driver = new IOSDriver<IOSElement>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+				driver = new IOSDriver<IOSElement>(new URL(AppiumServerURL), capabilities);
 			} 
 			catch (MalformedURLException e) 
 			{
