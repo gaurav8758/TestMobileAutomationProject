@@ -34,7 +34,7 @@ public class Mobile_LoginTest extends MobileTestBase{
 		
 		//Selecting a value
 		driver.findElement(By.id("com.whatsapp:id/registration_country")).click();
-		driver.findElement(By.xpath("//ImageButton")).click();
+		driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='Navigate up']")).click();
 	}
 	
 	@Test(priority=1, groups={"Testing","Mobile"},enabled=false)
