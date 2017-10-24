@@ -37,7 +37,7 @@ public class Mobile_LoginTest extends MobileTestBase{
 		driver.findElement(By.xpath("//android.widget.ImageButton[@content-desc='Navigate up']")).click();
 	}
 	
-	@Test(priority=1, groups={"Testing","Mobile"},enabled=false)
+	@Test(priority=1, groups={"Testing","Mobile"},enabled=true)
 	public void Mobile_Login_Test002(){
 		setup();
 		driver.findElement(By.id("com.whatsapp:id/eula_accept")).click();

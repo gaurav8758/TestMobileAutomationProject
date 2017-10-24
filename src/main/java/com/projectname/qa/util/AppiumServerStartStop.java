@@ -1,6 +1,7 @@
 package com.projectname.qa.util;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
@@ -13,7 +14,7 @@ public class AppiumServerStartStop {
     static String Appium_Node_Path="C:\\Program Files (x86)\\Appium\\node.exe";
     static String Appium_JS_Path="C:\\Program Files (x86)\\Appium\\node_modules\\appium\\bin\\appium.js";
     static AppiumDriverLocalService service;
-    static String service_url;
+    public static String service_url;
 
     public static void appiumStart(){
         service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder().
@@ -37,13 +38,16 @@ public class AppiumServerStartStop {
         service.stop();
     }
     
-    public static boolean isAppiumrunning() throws Exception {
-        final URL status = new URL(service_url);
+    public static boolean isAppiumrunning() {
         try {
-            new UrlChecker().waitUntilAvailable(10, TimeUnit.SECONDS, status);
+            new UrlChecker().waitUntilAvailable(10, TimeUnit.SECONDS, new URL(service_url));
             return true;
         } catch (UrlChecker.TimeoutException e) {
             return false;
-        }
+        } catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
     }
 }

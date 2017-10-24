@@ -13,6 +13,7 @@ import java.net.URL;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.projectname.qa.base.MobileTestBase;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class LocalDriverFactory {
     static synchronized AppiumDriver<?> createInstance(String platformName)  {
@@ -41,16 +42,15 @@ public class LocalDriverFactory {
    			AppiumServerURL = MobileTestBase.GlobalappiumURL;
    		}
    		
-   		try {
-			if (AppiumServerStartStop.isAppiumrunning()){
-				AppiumServerURL = AppiumServerStartStop.service_url;
-			}
-		} 
-   		catch (Exception e1) 
-   		{
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+        if (AppiumServerStartStop.isAppiumrunning())
+        {
+        	ExtentTestManager.getTest().log(LogStatus.PASS, "The appium server is running in the path: " + AppiumServerStartStop.service_url);
+        	AppiumServerURL = AppiumServerStartStop.service_url;
+        }
+        else
+        {
+        	ExtentTestManager.getTest().log(LogStatus.FAIL, "The appium server is <B><font color=red>NOT</font><B> running in the path: " + AppiumServerStartStop.service_url);
+        }
    		//Checking the Appium server URL
    		
    		if (platformName.equalsIgnoreCase("android"))
