@@ -13,7 +13,7 @@ public class AppiumServerStartStop {
 
     public static void appiumStart(){
         service = AppiumDriverLocalService.buildService(new AppiumServiceBuilder().
-                usingPort(2856).usingDriverExecutable(new File(Appium_Node_Path)).
+                usingPort(4723).usingDriverExecutable(new File(Appium_Node_Path)).
                 withAppiumJS(new File(Appium_JS_Path)));
         service.start();
         
@@ -27,6 +27,7 @@ public class AppiumServerStartStop {
 		}
         
         service_url = service.getUrl().toString();
+        System.out.println(service_url);
     }
 
     public static void appiumStop(){
