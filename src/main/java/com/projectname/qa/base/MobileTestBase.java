@@ -67,11 +67,10 @@ public class MobileTestBase {
 	}
 	
     public WebDriver getDriver() {
-        System.out.println("Thread id = " + Thread.currentThread().getId());
-        System.out.println("Hashcode of webDriver instance = " + LocalDriverManager.getDriver().hashCode());
+        //System.out.println("Thread id = " + Thread.currentThread().getId());
+        //System.out.println("Hashcode of webDriver instance = " + LocalDriverManager.getDriver().hashCode());
         driver = LocalDriverManager.getDriver();
         
-        System.out.println("Driver was created");
 		e_driver = new EventFiringWebDriver(driver);
 		// Now create object of EventListerHandler to register it with EventFiringWebDriver
 		eventListener = new AppiumEventListener();
@@ -102,14 +101,17 @@ public class MobileTestBase {
     }
     	
    @AfterMethod
-    protected void afterMethod(ITestResult result) {
+    protected void afterMethod(ITestResult result, Method method) {
        if (result.getStatus() == ITestResult.FAILURE) {
            ExtentTestManager.getTest().log(LogStatus.FAIL, result.getThrowable());
+           System.out.println(method.getName() + ": Fail");
            //ExtentTestManager.getTest().log(LogStatus.INFO, "Snapshot below: " + test.addScreenCapture(TestUtil.getLocationTimeStampOnFailures()));
        } else if (result.getStatus() == ITestResult.SKIP) {
            ExtentTestManager.getTest().log(LogStatus.SKIP, "Test skipped " + result.getThrowable());
+           System.out.println(method.getName() + ": Skip");
        } else {
            ExtentTestManager.getTest().log(LogStatus.PASS, "Test passed");
+           System.out.println(method.getName() + ": Pass");
        }
        
        ExtentManager.getReporter().endTest(ExtentTestManager.getTest());        

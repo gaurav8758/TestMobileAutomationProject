@@ -29,14 +29,16 @@ public class Mobile_LoginTest extends MobileTestBase{
 	public void Mobile_Login_Test001(){
 		setup();
 		//String PageTitle = loginPage.getLoginPageTitle();
-		try {
+		
+		
+/*		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		System.out.println("After sleep command");
+		}*/
+		
+		
 		driver.findElement(By.id("com.whatsapp:id/eula_accept")).click();
-		System.out.println("After clicking");
 	}
 }

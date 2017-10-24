@@ -17,9 +17,9 @@ public class ExtentManager {
         if (extent == null) {
         	if (MobileTestBase.GlobalExtentReportsOverWrite)
         	{
-        		System.out.println("Results File Location: " + filePath.toString());
+        		//System.out.println("Results File Location: " + filePath.toString());
         		extent = new ExtentReports(filePath.toString(), true, DisplayOrder.OLDEST_FIRST);
-        		System.out.println("inside true");
+        		//System.out.println("inside true");
         	}
         	else
         	{
