@@ -15,24 +15,24 @@ public class AppiumDriverListener implements IInvokedMethodListener {
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
         if (method.isTestMethod()) {
         	//System.out.println("beforeInvocation called");
-        	String browserName;
+        	String platformName;
         	//String browserName = TestBase.GlobalBrowser;
-        	if (!MobileTestBase.GlobalBrowser.equals(null))
+        	if (!MobileTestBase.GlobalplatformName.equals(null))
         	{
-        		browserName = MobileTestBase.GlobalBrowser;
+        		platformName = MobileTestBase.GlobalplatformName;
         	}
-        	else if (!method.getTestMethod().getXmlTest().getLocalParameters().get("browserName").equals(null))
+        	else if (!method.getTestMethod().getXmlTest().getLocalParameters().get("platformName").equals(null))
         	{
-        		 browserName = method.getTestMethod().getXmlTest().getLocalParameters().get("browserName");
+        		platformName = method.getTestMethod().getXmlTest().getLocalParameters().get("platformName");
         	}
         	else
         	{
-        		 browserName = System.getProperty("browserName");
+        		platformName = System.getProperty("platformName");
         	}
         	
-        	AppiumDriver driver = LocalDriverFactory.createInstance(browserName);
+        	AppiumDriver driver = LocalDriverFactory.createInstance(platformName);
             LocalDriverManager.setAppiumDriver(driver);
-            ExtentTestManager.getTest().log(LogStatus.PASS, "Browser: <B>" + browserName.toUpperCase() + "</B><br />Browser is opened.");
+            ExtentTestManager.getTest().log(LogStatus.PASS, "Browser: <B>" + platformName.toUpperCase() + "</B><br />Browser / app is opened.");
         }
     }
  

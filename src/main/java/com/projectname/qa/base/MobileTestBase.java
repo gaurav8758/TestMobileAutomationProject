@@ -35,12 +35,18 @@ public class MobileTestBase {
 	public static Properties prop;
 	public static EventFiringWebDriver e_driver;
 	public static AppiumEventListener eventListener;
-	public static String GlobalBrowser;
-	public static String GlobalURL;
+
+	public static String GloballocalapkURL=null;
+	public static String GlobaldeviceName;
+	public static String GlobalplatformVersion;
+	public static String GlobalplatformName;
+	public static String GlobalappPackage;
+	public static String GlobalappActivity;
+	public static String GlobalappiumURL;
+	
 	public static boolean GlobalExtentReportsOverWrite=false;
 	public static String GlobalExtentReportsLocation="C:\\Automation_Framework\\Reports\\ExtentReport.html";
 	public static String GlobaldriverLocation;
-	public static String Globalplatform;
 	
 	public static ExtentReports extent;
 	public static ExtentTest test;
@@ -65,6 +71,7 @@ public class MobileTestBase {
         System.out.println("Hashcode of webDriver instance = " + LocalDriverManager.getDriver().hashCode());
         driver = LocalDriverManager.getDriver();
         
+        System.out.println("Driver was created");
 		e_driver = new EventFiringWebDriver(driver);
 		// Now create object of EventListerHandler to register it with EventFiringWebDriver
 		eventListener = new AppiumEventListener();
@@ -73,23 +80,21 @@ public class MobileTestBase {
 
 		return driver;
     }
-    
-    @Parameters({"platform"})
-    @BeforeSuite(alwaysRun=true)
-    public void beforeSuite(String platform) {
-    	Globalplatform = platform;
-    	if (platform.equalsIgnoreCase("mobile")){
-    		
-    	}
-	}
 
-    @Parameters({ "URL", "browserName", "extentReportsOverwrite","extentReportsLocation", "driverLocation"})
+    @Parameters({ "localapkURL", "deviceName", "platformVersion","platformName","appPackage","appActivity","AppiumURL",
+    				"extentReportsOverwrite","extentReportsLocation", "driverLocation"})
     @BeforeMethod(alwaysRun=true)
-    public void beforeMethod(String URL, String browserName, boolean extentReportsOverwrite, String extentReportsLocation, 
-    						String driverLocation,Method method) {
+    public void beforeMethod(String localapkURL, String deviceName, String platformVersion, String platformName, String appPackage,
+    						String appActivity,String AppiumURL,
+    						boolean extentReportsOverwrite, String extentReportsLocation, String driverLocation, Method method) {
     	//System.out.println("beforemethod called");
-    	GlobalBrowser = browserName;
-    	GlobalURL = URL;
+    	GloballocalapkURL=localapkURL;
+    	GlobaldeviceName=deviceName;
+    	GlobalplatformVersion=platformVersion;
+    	GlobalplatformName=platformName;
+    	GlobalappPackage=appPackage;
+    	GlobalappActivity=appActivity;
+    	GlobalappiumURL=AppiumURL;
     	GlobalExtentReportsOverWrite = Boolean.valueOf(extentReportsOverwrite);
     	GlobalExtentReportsLocation = extentReportsLocation;
     	GlobaldriverLocation = driverLocation;
