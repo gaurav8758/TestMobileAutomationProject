@@ -2,17 +2,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="ParrellelExecutionFramework" parallel="classes">
     
- 	<listeners>
-		<listener class-name="com.projectname.qa.util.WebDriverListener"></listener>
-		<listener class-name="com.projectname.qa.util.RetryListener"/>
-	</listeners>  
-	<parameter name="browserName" value="android"/> 
-	<parameter name="URL" value="https://www.google.com"/> 
+ 	<parameter name="URL" value="https://www.google.com"/> 
 	<parameter name="extentReportsOverwrite" value="true"/> 
 	<parameter name="extentReportsLocation" value="C:\\Automation_Framework\\Reports3"/> 
 	<parameter name="driverLocation" value="C:\\Automation_Framework\\Drivers"/> 
 	<parameter name="platform" value="mobile"/> 
+	<parameter name="browserName" value="android"/> 
 	
+    <listeners>
+		<listener class-name="com.projectname.qa.util.AppiumDriverListener"></listener>
+		<listener class-name="com.projectname.qa.util.RetryListener"/>
+	</listeners>  
+
 	 <test name="Test" >		
 		<packages>
 	      <package name=".*" />
