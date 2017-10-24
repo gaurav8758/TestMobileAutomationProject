@@ -32,7 +32,7 @@ public class AppiumEventListener extends MobileTestBase implements AppiumWebDriv
 
 		public void afterChangeValueOf(WebElement element, WebDriver driver) {
 			//System.out.println("Element value changed to: " + element.toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Element value changed to: " + element.toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, "Element value changed to: " + getElementName(element.toString()));
 		}
 
 		public void beforeClickOn(WebElement element, WebDriver driver) {
@@ -44,7 +44,7 @@ public class AppiumEventListener extends MobileTestBase implements AppiumWebDriv
 
 		public void afterClickOn(WebElement element, WebDriver driver) {
 			//System.out.println("Clicked on: " + element.toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Clicked on: " + element.toString());
+			ExtentTestManager.getTest().log(LogStatus.PASS, "Clicked on: " + getElementName(element.toString()));
 		}
 
 		public void beforeNavigateBack(WebDriver driver) {
@@ -135,7 +135,24 @@ public class AppiumEventListener extends MobileTestBase implements AppiumWebDriv
 
 		public void afterChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
 			// TODO Auto-generated method stub
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Entered '" + Arrays.toString(keysToSend) + "' in the element '" + element.toString() + "'." );
+			ExtentTestManager.getTest().log(LogStatus.PASS, "Entered '" + Arrays.toString(keysToSend) + "' in the element '" + getElementName(element.toString()) + "'." );
+		}
+		
+		public String getElementName(String elementString){
+			String elementName = "";
+			if ((elementString.indexOf("-> xpath:"))>0)
+			{
+				elementName = (elementString.toString().substring(0,elementString.toString().length()-1).split(" -> xpath: ")[1]);
+			}
+			else if ((elementString.indexOf("-> id:"))>0)
+			{
+				elementName = (elementString.toString().substring(0,elementString.toString().length()-1).split(" -> id: ")[1]);
+			}
+			else
+			{
+				elementName = elementString;
+			}
+			return elementName;
 		}
 
 }
