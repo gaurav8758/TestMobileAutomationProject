@@ -5,7 +5,7 @@ import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
 
-import com.projectname.qa.base.TestBase;
+import com.projectname.qa.base.MobileTestBase;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class WebDriverListener implements IInvokedMethodListener {
@@ -15,9 +15,9 @@ public class WebDriverListener implements IInvokedMethodListener {
         	//System.out.println("beforeInvocation called");
         	String browserName;
         	//String browserName = TestBase.GlobalBrowser;
-        	if (!TestBase.GlobalBrowser.equals(null))
+        	if (!MobileTestBase.GlobalBrowser.equals(null))
         	{
-        		browserName = TestBase.GlobalBrowser;
+        		browserName = MobileTestBase.GlobalBrowser;
         	}
         	else if (!method.getTestMethod().getXmlTest().getLocalParameters().get("browserName").equals(null))
         	{

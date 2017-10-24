@@ -4,18 +4,18 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import com.projectname.qa.base.TestBase;
+import com.projectname.qa.base.MobileTestBase;
 import com.relevantcodes.extentreports.DisplayOrder;
 import com.relevantcodes.extentreports.ExtentReports;
 
 public class ExtentManager {
     static ExtentReports extent;
     //final static String filePath = System.getProperty("user.dir") + "\\test-output\\ExtentReport.html";
-    final static Path filePath = Paths.get(TestBase.GlobalExtentReportsLocation + "\\ExtentReport.html");
+    final static Path filePath = Paths.get(MobileTestBase.GlobalExtentReportsLocation + "\\ExtentReport.html");
     
     public synchronized static ExtentReports getReporter() {
         if (extent == null) {
-        	if (TestBase.GlobalExtentReportsOverWrite)
+        	if (MobileTestBase.GlobalExtentReportsOverWrite)
         	{
         		System.out.println("Results File Location: " + filePath.toString());
         		extent = new ExtentReports(filePath.toString(), true, DisplayOrder.OLDEST_FIRST);

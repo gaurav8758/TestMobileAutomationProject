@@ -30,7 +30,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class TestBase {
+public class MobileTestBase {
 	public static WebDriver driver;
 	public static Properties prop;
 	public static EventFiringWebDriver e_driver;
@@ -45,7 +45,7 @@ public class TestBase {
 	public static ExtentReports extent;
 	public static ExtentTest test;
 	
-	public TestBase(){
+	public MobileTestBase(){
 		BasicConfigurator.configure();
 		Logger.getRootLogger().setLevel(Level.INFO);
 		try {
@@ -78,7 +78,7 @@ public class TestBase {
 			driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 			driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 			
-	        driver.get(TestBase.GlobalURL);
+	        driver.get(MobileTestBase.GlobalURL);
 		}
 
 		return driver;

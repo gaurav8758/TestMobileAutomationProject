@@ -15,12 +15,12 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
-import com.projectname.qa.base.TestBase;
+import com.projectname.qa.base.MobileTestBase;
 
 public class LocalDriverFactory {
     static synchronized WebDriver createInstance(String browserName)  {
         WebDriver driver = null;
-        if (TestBase.Globalplatform.equalsIgnoreCase("desktop"))
+        if (MobileTestBase.Globalplatform.equalsIgnoreCase("desktop"))
         {
 	        if (browserName.toLowerCase().contains("firefox")) {
 	            driver = new FirefoxDriver();
@@ -31,17 +31,17 @@ public class LocalDriverFactory {
 	            return driver;
 	        }
 	        if (browserName.toLowerCase().contains("chrome")) {
-				System.setProperty("webdriver.chrome.driver", TestBase.GlobaldriverLocation + "\\chromedriver.exe");	
+				System.setProperty("webdriver.chrome.driver", MobileTestBase.GlobaldriverLocation + "\\chromedriver.exe");	
 	            driver = new ChromeDriver();
 	            return driver;
 	        }
 	        if (browserName.toLowerCase().contains("chrome_mac")) {
-				System.setProperty("webdriver.chrome.driver", TestBase.GlobaldriverLocation + "\\chromedriver_mac");	
+				System.setProperty("webdriver.chrome.driver", MobileTestBase.GlobaldriverLocation + "\\chromedriver_mac");	
 	            driver = new ChromeDriver();
 	            return driver;
 	        }
         }
-        else if (TestBase.Globalplatform.equalsIgnoreCase("mobile"))
+        else if (MobileTestBase.Globalplatform.equalsIgnoreCase("mobile"))
         {
         	if (browserName.toLowerCase().contains("android"))
         	{

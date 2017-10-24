@@ -6,11 +6,11 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.projectname.qa.base.TestBase;
+import com.projectname.qa.base.MobileTestBase;
 import com.projectname.qa.util.ExtentTestManager;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class Mobile_LoginTest extends TestBase{
+public class Mobile_LoginTest extends MobileTestBase{
 	WebDriver driver;
 	//LoginPage loginPage;
 	//HomePage homePage;
