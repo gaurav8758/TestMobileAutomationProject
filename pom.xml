@@ -111,7 +111,7 @@
 					<properties>
                         <property>
                           <name>listener</name>
-                          <value>com.projectname.qa.util.WebDriverListener,com.projectname.qa.util.RetryListener</value>
+                          <value>com.projectname.qa.util.AppiumDriverListener,com.projectname.qa.util.RetryListener</value>
                         </property>
                     </properties>
 					
