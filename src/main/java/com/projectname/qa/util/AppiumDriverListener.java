@@ -1,5 +1,7 @@
 package com.projectname.qa.util;
 
+import io.appium.java_client.AppiumDriver;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
@@ -8,7 +10,7 @@ import org.testng.ITestResult;
 import com.projectname.qa.base.MobileTestBase;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class WebDriverListener implements IInvokedMethodListener {
+public class AppiumDriverListener implements IInvokedMethodListener {
 
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
         if (method.isTestMethod()) {
@@ -28,8 +30,8 @@ public class WebDriverListener implements IInvokedMethodListener {
         		 browserName = System.getProperty("browserName");
         	}
         	
-            WebDriver driver = LocalDriverFactory.createInstance(browserName);
-            LocalDriverManager.setWebDriver(driver);
+        	AppiumDriver driver = LocalDriverFactory.createInstance(browserName);
+            LocalDriverManager.setAppiumDriver(driver);
             ExtentTestManager.getTest().log(LogStatus.PASS, "Browser: <B>" + browserName.toUpperCase() + "</B><br />Browser is opened.");
         }
     }
@@ -40,7 +42,7 @@ public class WebDriverListener implements IInvokedMethodListener {
             if (null!=driver) {
                 driver.quit();
             }
-            ExtentTestManager.getTest().log(LogStatus.PASS, "The browser is closed.");
+            ExtentTestManager.getTest().log(LogStatus.PASS, "The browser / app is closed.");
         }
     }
     

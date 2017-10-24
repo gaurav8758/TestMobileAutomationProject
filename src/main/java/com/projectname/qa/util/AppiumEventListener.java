@@ -15,7 +15,7 @@ import com.relevantcodes.extentreports.LogStatus;
 
 
 
-public class WebEventListener extends MobileTestBase implements WebDriverEventListener,AppiumWebDriverEventListener {
+public class AppiumEventListener extends MobileTestBase implements AppiumWebDriverEventListener {
 
 		public void beforeNavigateTo(String url, WebDriver driver) {
 			//System.out.println("Before navigating to: '" + url + "'");

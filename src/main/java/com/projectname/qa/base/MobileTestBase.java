@@ -25,7 +25,7 @@ import com.projectname.qa.util.ExtentManager;
 import com.projectname.qa.util.ExtentTestManager;
 import com.projectname.qa.util.LocalDriverManager;
 import com.projectname.qa.util.TestUtil;
-import com.projectname.qa.util.WebEventListener;
+import com.projectname.qa.util.AppiumEventListener;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -34,7 +34,7 @@ public class MobileTestBase {
 	public static WebDriver driver;
 	public static Properties prop;
 	public static EventFiringWebDriver e_driver;
-	public static WebEventListener eventListener;
+	public static AppiumEventListener eventListener;
 	public static String GlobalBrowser;
 	public static String GlobalURL;
 	public static boolean GlobalExtentReportsOverWrite=false;
@@ -67,7 +67,7 @@ public class MobileTestBase {
         
 		e_driver = new EventFiringWebDriver(driver);
 		// Now create object of EventListerHandler to register it with EventFiringWebDriver
-		eventListener = new WebEventListener();
+		eventListener = new AppiumEventListener();
 		e_driver.register(eventListener);
 		driver = e_driver;
 		

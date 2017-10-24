@@ -1,15 +1,15 @@
 package com.projectname.qa.util;
 
-import org.openqa.selenium.WebDriver;
+import io.appium.java_client.AppiumDriver;
 
 public class LocalDriverManager {
-    private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<WebDriver>();
+    private static ThreadLocal<AppiumDriver> appiumDriver = new ThreadLocal<AppiumDriver>();
  
-    public static synchronized WebDriver getDriver() {
-        return webDriver.get();
+    public static synchronized AppiumDriver getDriver() {
+        return appiumDriver.get();
     }
  
-    static void setWebDriver(WebDriver driver) {
-        webDriver.set(driver);
+    static void setAppiumDriver(AppiumDriver driver) {
+    	appiumDriver.set(driver);
     }
 }
