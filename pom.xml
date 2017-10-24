@@ -98,14 +98,18 @@
                  
 					<systemPropertyVariables>
 						<!-- Environment parameters -->
-                        <browserName>${browserName}</browserName>
-                        <URL>${URL}</URL>
+						<localapkURL>${localapkURL}</localapkURL>
+						<deviceName>${deviceName}</deviceName>
+						<platformVersion>${platformVersion}</platformVersion>
+						<platformName>${platformName}</platformName>
+						<appPackage>${appPackage}</appPackage>
+						<appActivity>${appActivity}</appActivity>
+						<AppiumURL>${AppiumURL}</AppiumURL>
 
 						<!-- Reports parameters -->
 						<extentReportsOverwrite>${extentReportsOverwrite}</extentReportsOverwrite>                
 						<extentReportsLocation>${extentReportsLocation}</extentReportsLocation>   
-						<driverLocation>${driverLocation}</driverLocation> 
-						<platform>${platform}</platform>              
+						<driverLocation>${driverLocation}</driverLocation>               
                     </systemPropertyVariables>
 
 					<properties>

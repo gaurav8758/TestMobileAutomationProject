@@ -2,25 +2,25 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="ParrellelExecutionFramework" parallel="classes">
 	
-    <listeners>
+<!--     <listeners>
 		<listener class-name="com.projectname.qa.util.AppiumDriverListener"></listener>
 		<listener class-name="com.projectname.qa.util.RetryListener"/>
 	</listeners>  
-
+ -->
 	 <test name="Test" >	
 	     <!-- Custom information -->
-		<parameter name="localapkURL" value="" /> <!-- URL -->
+<!-- 		<parameter name="localapkURL" value="" /> URL
 		<parameter name="deviceName" value="Nexus 5" /> 
 		<parameter name="platformVersion" value="6.0.1" /> 
 		<parameter name="platformName" value="Android" /> 
 		<parameter name="appPackage" value="com.whatsapp" />
 		<parameter name="appActivity" value="com.whatsapp.Main" /> 
-		<parameter name="AppiumURL" value="http://127.0.0.1:4723/wd/hub" /> 
+		<parameter name="AppiumURL" value="http://127.0.0.1:4723/wd/hub" /> --> 
 		
 		<!-- Must needed information -->
-		<parameter name="extentReportsOverwrite" value="true" /> 
+<!-- 		<parameter name="extentReportsOverwrite" value="true" /> 
 		<parameter name="extentReportsLocation" value="C:\\Automation_Framework\\Reports3" /> 
-		<parameter name="driverLocation" value="C:\\Automation_Framework\\Drivers" /> 
+		<parameter name="driverLocation" value="C:\\Automation_Framework\\Drivers" />  -->
 	     	
 		<packages>
 	      <package name=".*" />
