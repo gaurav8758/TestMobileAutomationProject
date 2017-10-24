@@ -53,7 +53,7 @@ public class MobileTestBase {
 	
 	public MobileTestBase(){
 		BasicConfigurator.configure();
-		Logger.getRootLogger().setLevel(Level.WARN);
+		Logger.getRootLogger().setLevel(Level.INFO);
 		try {
 			prop = new Properties();
 			FileInputStream ip = new FileInputStream(new File(System.getProperty("user.dir") + 
