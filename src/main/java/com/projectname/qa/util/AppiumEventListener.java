@@ -44,7 +44,7 @@ public class AppiumEventListener extends MobileTestBase implements AppiumWebDriv
 
 		public void afterClickOn(WebElement element, WebDriver driver) {
 			//System.out.println("Clicked on: " + element.toString());
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Clicked on: " + getElementName(element.toString()));
+			ExtentTestManager.getTest().log(LogStatus.PASS, "Clicked on the element '" + getElementName(element.toString()) + "'.");
 		}
 
 		public void beforeNavigateBack(WebDriver driver) {

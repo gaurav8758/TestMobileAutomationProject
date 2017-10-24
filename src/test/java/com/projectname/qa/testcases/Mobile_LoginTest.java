@@ -31,9 +31,13 @@ public class Mobile_LoginTest extends MobileTestBase{
 		driver.findElement(By.id("com.whatsapp:id/eula_accept")).click();
 		driver.findElement(By.id("com.whatsapp:id/cancel")).click();
 		driver.findElement(By.id("com.whatsapp:id/registration_phone")).sendKeys("2107739101");
+		
+		//Selecting a value
+		driver.findElement(By.id("com.whatsapp:id/registration_country")).click();
+		driver.findElement(By.xpath("//ImageButton")).click();
 	}
 	
-	@Test(priority=1, groups={"Testing","Mobile"})
+	@Test(priority=1, groups={"Testing","Mobile"},enabled=false)
 	public void Mobile_Login_Test002(){
 		setup();
 		driver.findElement(By.id("com.whatsapp:id/eula_accept")).click();
