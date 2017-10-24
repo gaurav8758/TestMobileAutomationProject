@@ -8,8 +8,6 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.lang.reflect.Method;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
-
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -17,14 +15,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
+import com.projectname.qa.util.AppiumServerStartStop;
 import com.projectname.qa.util.ExtentManager;
 import com.projectname.qa.util.ExtentTestManager;
 import com.projectname.qa.util.LocalDriverManager;
-import com.projectname.qa.util.TestUtil;
 import com.projectname.qa.util.AppiumEventListener;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -123,5 +122,15 @@ public class MobileTestBase {
        PrintWriter pw = new PrintWriter(sw);
        t.printStackTrace(pw);
        return sw.toString();
+   }
+   
+   @BeforeSuite(alwaysRun=true)
+   public void beforeSuite(){
+	   AppiumServerStartStop.appiumStart();
+   }
+   
+   @AfterSuite(alwaysRun=true)
+   public void afterSuite(){
+	   AppiumServerStartStop.appiumStop();
    }
 }
