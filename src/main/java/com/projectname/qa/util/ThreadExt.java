@@ -22,7 +22,7 @@ public class ThreadExt extends Thread {
 			  
 		       }
 	
-	private static Long GetSleepTime(WaitTime sleepTime) {
+	  private static Long GetSleepTime(WaitTime sleepTime) {
 		// TODO Auto-generated method stub
 		Long GetSleepTime = 0L;
 		switch (MobileTestBase.GlobalplatformName.trim().toLowerCase()) {
