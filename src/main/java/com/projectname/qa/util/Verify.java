@@ -3,6 +3,7 @@ package com.projectname.qa.util;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.asserts.Assertion;
 
 import com.relevantcodes.extentreports.LogStatus;
@@ -38,7 +39,8 @@ public class Verify extends Assertion
 		}
 		catch(AssertionError ex)
 		{
-			ExtentTestManager.getTest().log(LogStatus.FAIL, message + "Condition not met.: " + ExtentTestManager.getTest().addScreenCapture(GetScreenShot.capture(driver, "screenShotName")));
+			ExtentTestManager.getTest().log(LogStatus.FAIL, message + "<br /><font color=red>Element not present.</font>" + ExtentTestManager.getTest().addScreenCapture(GetScreenShot.capture(driver, "screenShotName")));
+			Assert.fail();
 		}
 
 	}	
