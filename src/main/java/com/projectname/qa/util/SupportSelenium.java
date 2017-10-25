@@ -116,6 +116,7 @@ public class SupportSelenium extends MobileTestBase{
 					}
 				else
 					{
+						ExtentTestManager.getTest().log(LogStatus.FAIL, ExpectedResult + "<br /><font color=red>Condition not met.</font>");
 						ExtentTestManager.getTest().log(LogStatus.FAIL, ExpectedResult + "<br /><font color=red>Condition not met.</font>" + ExtentTestManager.getTest().addScreenCapture(GetScreenShot.capture(driver, "screenShotName")));
 			            //ATUReports.add("", ExpectedResult, "Condition not met.", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
