@@ -47,6 +47,8 @@ public class MobileTestBase {
 	public static String GlobalExtentReportsLocation="C:\\Automation_Framework\\Reports\\ExtentReport.html";
 	public static String GlobaldriverLocation;
 	
+	public static long ScriptWaitTimeCounter;
+	
 	public static ExtentReports extent;
 	public static ExtentTest test;
 	

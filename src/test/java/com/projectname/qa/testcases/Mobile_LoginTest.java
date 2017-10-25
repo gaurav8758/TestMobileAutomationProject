@@ -9,13 +9,13 @@ import org.testng.annotations.Test;
 import com.gargoylesoftware.htmlunit.javascript.host.Screen;
 import com.projectname.qa.base.MobileTestBase;
 import com.projectname.qa.screens.Screen_Welcome;
-import com.projectname.qa.util.ExtentTestManager;
-import com.projectname.qa.util.Verify;
+import com.projectname.qa.util.*;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class Mobile_LoginTest extends MobileTestBase{
 	WebDriver driver;
 	Verify Assert;
+	SupportSelenium SupportSelenium = new SupportSelenium();
 	//LoginPage loginPage;
 	//HomePage homePage;
 
@@ -36,7 +36,8 @@ public class Mobile_LoginTest extends MobileTestBase{
 		
 		//Welcome Screen 
 		Screen_Welcome WelcomeScreen = PageFactory.initElements(driver, Screen_Welcome.class);
-		Assert.assertTrue(WelcomeScreen.TextWelcome().isDisplayed(), "'Welcome to Whatsapp' is not displayed in the screen.");
+		SupportSelenium.ElementDisplayed(driver, WelcomeScreen.element_TextWelcome, "'Welcome to Whatsapp' should be displayed in the screen.");
+		//Assert.assertTrue(WelcomeScreen.TextWelcome().isDisplayed(), "'Welcome to Whatsapp' is not displayed in the screen.");
 		WelcomeScreen.btnAgreeAndContinue().click();
 		
 		//driver.findElement(By.id("com.whatsapp:id/eula_accept")).click();

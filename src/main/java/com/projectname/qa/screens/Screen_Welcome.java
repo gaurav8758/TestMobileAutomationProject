@@ -14,7 +14,7 @@ public class Screen_Welcome {
 	
 	//Object declaration
 	private By btnAgreeAndContinue = By.id("com.whatsapp:id/eula_accept");
-	private By TextWelcome = By.xpath("//android.widget.TextView[@text='Welcome to WhatsApp']");
+	public By element_TextWelcome = By.xpath("//android.widget.TextView[@text='Welcome to WhatsApp']");
 	
 	public Screen_Welcome(WebDriver tdriver) {
 		driver = tdriver;
@@ -27,6 +27,6 @@ public class Screen_Welcome {
 	}
 	
 	public WebElement TextWelcome(){
-		return driver.findElement(TextWelcome);
+		return driver.findElement(element_TextWelcome);
 	}
 }
