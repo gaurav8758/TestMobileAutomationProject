@@ -107,6 +107,7 @@ public class SupportSelenium extends MobileTestBase{
 	public void ElementDisplayed(WebDriver driver, By ByXpath, String ExpectedResult)
 	{
 		ThreadExt.sleep(1000);
+		System.out.println("inside element displayed function");
 		if (isElementPresent(driver, ByXpath))
 		{
 				if(driver.findElement(ByXpath).isDisplayed())
@@ -116,14 +117,14 @@ public class SupportSelenium extends MobileTestBase{
 					}
 				else
 					{
-						ExtentTestManager.getTest().log(LogStatus.FAIL, ExpectedResult + "<br /><font color=red>Condition not met.</font>");
 						ExtentTestManager.getTest().log(LogStatus.FAIL, ExpectedResult + "<br /><font color=red>Condition not met.</font>" + ExtentTestManager.getTest().addScreenCapture(GetScreenShot.capture(driver, "screenShotName")));
 			            //ATUReports.add("", ExpectedResult, "Condition not met.", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
 					}
 			}
 		else
 			{
-			  //ATUReports.add("", ExpectedResult, "Element not present.", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+			  	//ATUReports.add("", ExpectedResult, "Element not present.", LogAs.FAILED, new CaptureScreen(ScreenshotOf.BROWSER_PAGE));
+				ExtentTestManager.getTest().log(LogStatus.FAIL, ExpectedResult + "<br /><font color=red>Element not present.</font>" + ExtentTestManager.getTest().addScreenCapture(GetScreenShot.capture(driver, "screenShotName")));
 			}
 	}
 	
