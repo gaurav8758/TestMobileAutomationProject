@@ -111,7 +111,7 @@ public class SupportSelenium extends MobileTestBase{
 		{
 				if(driver.findElement(ByXpath).isDisplayed())
 					{
-						ExtentTestManager.getTest().log(LogStatus.PASS, ExpectedResult,"Condition met.");  
+						ExtentTestManager.getTest().log(LogStatus.PASS, ExpectedResult + "<br /><font color=green>Condition met.</font>");  
 						//ATUReports.add("", ExpectedResult, "Condition met.", true);
 					}
 				else
