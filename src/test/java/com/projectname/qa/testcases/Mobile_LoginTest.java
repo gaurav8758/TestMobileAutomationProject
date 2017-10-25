@@ -36,7 +36,7 @@ public class Mobile_LoginTest extends MobileTestBase{
 		
 		//Welcome Screen 
 		Screen_Welcome WelcomeScreen = PageFactory.initElements(driver, Screen_Welcome.class);
-		Assert.assertFalse(WelcomeScreen.TextWelcome().isDisplayed(), "'Welcome to Whatsapp' is not displayed in the screen.");
+		Assert.assertTrue(WelcomeScreen.TextWelcome().isDisplayed(), "'Welcome to Whatsapp' is not displayed in the screen.");
 		WelcomeScreen.btnAgreeAndContinue().click();
 		
 		//driver.findElement(By.id("com.whatsapp:id/eula_accept")).click();
