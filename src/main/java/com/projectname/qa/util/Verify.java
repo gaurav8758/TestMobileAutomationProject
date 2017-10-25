@@ -38,7 +38,7 @@ public class Verify extends Assertion
 		}
 		catch(AssertionError ex)
 		{
-			ExtentTestManager.getTest().log(LogStatus.FAIL, message, "Condition not met.: " + ExtentTestManager.getTest().addScreenCapture(GetScreenShot.capture(driver, "screenShotName")));
+			ExtentTestManager.getTest().log(LogStatus.FAIL, message + "Condition not met.: " + ExtentTestManager.getTest().addScreenCapture(GetScreenShot.capture(driver, "screenShotName")));
 		}
 
 	}	

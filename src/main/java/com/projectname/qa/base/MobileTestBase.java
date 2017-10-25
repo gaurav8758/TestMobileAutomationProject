@@ -104,11 +104,11 @@ public class MobileTestBase {
    @AfterMethod
     protected void afterMethod(ITestResult result, Method method) {
        if (result.getStatus() == ITestResult.FAILURE) {
-           ExtentTestManager.getTest().log(LogStatus.FAIL, result.getThrowable());
+           //ExtentTestManager.getTest().log(LogStatus.FAIL, result.getThrowable());
            System.out.println(method.getName() + ": Fail");
            //ExtentTestManager.getTest().log(LogStatus.INFO, "Snapshot below: " + test.addScreenCapture(TestUtil.getLocationTimeStampOnFailures()));
        } else if (result.getStatus() == ITestResult.SKIP) {
-           ExtentTestManager.getTest().log(LogStatus.SKIP, "Test skipped " + result.getThrowable());
+           //ExtentTestManager.getTest().log(LogStatus.SKIP, "Test skipped " + result.getThrowable());
            System.out.println(method.getName() + ": Skip");
        } else {
            ExtentTestManager.getTest().log(LogStatus.PASS, "Test passed");
