@@ -1,12 +1,7 @@
 package com.projectname.qa.util;
 
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.asserts.Assertion;
-import org.testng.asserts.SoftAssert;
-
 import com.relevantcodes.extentreports.LogStatus;
 
 public class Verify extends Assertion 
@@ -41,8 +36,6 @@ public class Verify extends Assertion
 		catch(AssertionError ex)
 		{
 			ExtentTestManager.getTest().log(LogStatus.FAIL, message + "<br /><font color=red>Element not present.</font>" + ExtentTestManager.getTest().addScreenCapture(GetScreenShot.capture(driver, "screenShotName")));
-			SoftAssert softAssert = new SoftAssert();
-			softAssert.fail();
 		}
 
 	}	
